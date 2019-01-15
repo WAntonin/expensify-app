@@ -1,16 +1,12 @@
-// React
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import AppRouter from './routers/AppRouter'
-// Styles
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
-// Store
-import { addExpense } from './actions/expenses'
 import configureStore from './store/configureStore'
-import getVisibleExpenses from './selectors/expenses'
 import 'react-dates/lib/css/_datepicker.css'
+import './firebase/firebase'
 
 
 const store = configureStore()
