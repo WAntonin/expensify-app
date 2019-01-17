@@ -13,7 +13,7 @@ export const LoginPage = ({ startGoogleLogin, startFacebookLogin }) => (
             </button>
             <button className="button button--login" onClick={startFacebookLogin}>
                 <img className="button--login__item" src="/images/facebook_icon.png" />
-                <span>Login with FaceBook</span>
+                <span>Login with Facebook</span>
             </button>
         </div>
     </div>
