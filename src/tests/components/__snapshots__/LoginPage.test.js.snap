@@ -19,7 +19,24 @@ exports[`should render LoginPage correctly 1`] = `
       className="button button--login"
       onClick={[Function]}
     >
-      Login with Google
+      <img
+        className="button--login__item"
+        src="/images/google_icon.png"
+      />
+      <span>
+        Login with Google
+      </span>
+    </button>
+    <button
+      className="button button--login"
+    >
+      <img
+        className="button--login__item"
+        src="/images/facebook_icon.png"
+      />
+      <span>
+        Login with FaceBook
+      </span>
     </button>
   </div>
 </div>

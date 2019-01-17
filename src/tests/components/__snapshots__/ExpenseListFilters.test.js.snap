@@ -27,6 +27,11 @@ exports[`should render ExpenseListFilters correctly 1`] = `
         value="date"
       >
         <option
+          value=""
+        >
+          Sort by
+        </option>
+        <option
           value="date"
         >
           Date
@@ -155,6 +160,11 @@ exports[`should render ExpenseListFilters with all data correctly 1`] = `
         onChange={[Function]}
         value="amount"
       >
+        <option
+          value=""
+        >
+          Sort by
+        </option>
         <option
           value="date"
         >

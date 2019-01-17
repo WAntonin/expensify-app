@@ -14,6 +14,19 @@
     background: none;
 }
 
+.button--login {
+    align-items: center;
+    border-radius: $s-radius;
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+    margin-bottom: $s-size;
+}
+
+.button--login__item {
+    margin-right:$s-size;
+}
+
 .button--secondary {
     background: #888888;
 }
