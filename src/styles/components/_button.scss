@@ -10,6 +10,13 @@
     padding: $s-size;
     text-decoration: none;
     transition: background .3s ease;
+    &:disabled {
+        color: lighten($grey, 15);
+        background: lighten($grey, 5);
+        &:hover {
+            background: lighten($grey, 5);
+        }
+    }
     &:hover {
         background: darken($blue, 10%);
     }

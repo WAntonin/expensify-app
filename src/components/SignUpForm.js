@@ -1,6 +1,11 @@
 import React from 'react'
 import isEmail from 'validator/lib/isEmail'
 import { connect } from 'react-redux'
+import {
+    startCreateUserAccount,
+    startGoogleLogin,
+    startFacebookLogin
+} from '../actions/auth'
 
 export class SignUpForm extends React.Component {
     constructor(props) {
@@ -9,22 +14,41 @@ export class SignUpForm extends React.Component {
             userName: '',
             email: '',
             password: '',
-            passwordConfrimation:'',
-            error:''
+            passwordConfrimation: '',
+            error: ''
         }
     }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
+    onPasswordChange = (e) => {
+        const password = e.target.value
+        this.setState(() => ({ password }))
+    }
+    onPasswordConfirmationChange = (e) => {
+        const passwordConfirmation = e.target.value
+        this.setState(() => ({ passwordConfirmation }))
+    }
+    onSubmit = (e) => {
+        e.preventDefault()
+        const isValidPassword = this.state.password.length > 0
+            && this.state.password === this.state.passwordConfrimation
+        if (!isEmail(this.state.email) && !isValidPassword) {
+            this.setState(() => ({ error: 'Invalid password or email' }))
+        } else {
+            this.setState(() => ({ error: '' }))
+            this.props.startCreateUserAccount(this.state.email, this.state.password)
+        }
+    }
     render() {
         const isPasswordConfirmed = this.state.password !== '' && this.state.password === this.state.passwordConfrimation
         const isInvalid = this.state.userName === ''
-                            && isEmail(this.state.email)
-                            && this.state.email === ''
-                            && this.state.password === ''
-                            && this.state.password !== this.state.passwordConfirmation
+            || !isEmail(this.state.email)
+            || this.state.email === ''
+            || this.state.password === ''
+            || this.state.password !== this.state.passwordConfirmation
         return (
-            <div>
+            <div className="box-layout__box">
                 <button className="button button--login" onClick={this.props.startGoogleLogin}>
                     <img className="button--login__item" src="/images/google_icon.png" />
                     <span>Sign up with Google</span>
@@ -34,8 +58,9 @@ export class SignUpForm extends React.Component {
                     <span>Sign up with Facebook</span>
                 </button>
                 <h3>OR</h3>
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
                     <input
+                        className="text-input"
                         type="text"
                         value={this.state.userName}
                         name="userName"
@@ -44,6 +69,7 @@ export class SignUpForm extends React.Component {
                         autoComplete="on"
                     />
                     <input
+                        className="text-input"
                         type="email"
                         value={this.state.email}
                         name="email"
@@ -52,29 +78,35 @@ export class SignUpForm extends React.Component {
                         autoComplete="on"
                     />
                     <input
+                        className="text-input"
                         type="password"
                         value={this.state.password}
                         name="password"
-                        onChange={this.onChange}
+                        onChange={this.onPasswordChange}
                         placeholder="Password"
                         autoComplete="on"
                     />
                     <input
+                        className="text-input"
                         type="password"
                         value={this.state.passwordconfirmation}
                         name="passwordConfirmation"
-                        onChange={this.onChange}
+                        onChange={this.onPasswordConfirmationChange}
                         placeholder="Password confirmation"
                         autoComplete="on"
                     />
-                    {isPasswordConfirmed ? (
-                        <span>Password confirmed.</span>
-                    ) : (
-                        <span>Passwords are not matching.</span>
-                    )}
-                    <button disabled={isInvalid} type="submit">Sign In</button>
+                    {isPasswordConfirmed && <span>Password confirmed.</span>}
+                    <button className="button" disabled={isInvalid} type="submit">Sign Up</button>
                 </form>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    startCreateUserAccount: (email, password) => dispatch(startCreateUserAccount(email, password)),
+    startGoogleLogin: () => dispatch(startGoogleLogin()),
+    startFacebookLogin: () => dispatch(startFacebookLogin())
+})
+
+export default connect(undefined, mapDispatchToProps)(SignUpForm)

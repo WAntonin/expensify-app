@@ -1,9 +1,8 @@
 import React from 'react'
-import { SignUpForm } from './SignUpForm'
+import SignUpForm from './SignUpForm'
 
 const SignUpPage = () => (
-    <div>
-        This is the SignUpPage
+    <div className="box-layout">
         <SignUpForm />
     </div>
 )

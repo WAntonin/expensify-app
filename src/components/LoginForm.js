@@ -37,8 +37,9 @@ export class LoginForm extends React.Component {
                     <span>Sign in with Facebook</span>
                 </button>
                 <h3>OR</h3>
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
                     <input
+                        className="text-input"
                         type="email"
                         value={this.state.email}
                         name="email"
@@ -47,6 +48,7 @@ export class LoginForm extends React.Component {
                         autoComplete="on"
                     />
                     <input
+                        className="text-input"
                         type="password"
                         value={this.state.password}
                         name="password"
@@ -55,7 +57,7 @@ export class LoginForm extends React.Component {
 
                         autoComplete="on"
                     />
-                    <button disabled={isInvalid} type="submit">Sign In</button>
+                    <button className="button" disabled={isInvalid} type="submit">Sign In</button>
                 </form>
             </div>
         )
