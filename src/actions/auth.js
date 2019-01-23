@@ -7,6 +7,7 @@ export const login = (uid) => ({
 
 export const startGoogleLogin = () => {
     return () => {
+        console.log('start login')
         return firebase.auth().signInWithPopup(googleAuthProvider)
     }
 }
@@ -14,6 +15,13 @@ export const startGoogleLogin = () => {
 export const startFacebookLogin = () => {
     return () => {
         return firebase.auth().signInWithPopup(facebookAuthProvider)
+    }
+}
+
+export const startEmailPasswordLogin = (email, password) => {
+    return () => {
+        console.log('start login')
+        return firebase.auth().signInWithEmailAndPassword(email, password)
     }
 }
 

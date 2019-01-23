@@ -1,27 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { startGoogleLogin, startFacebookLogin } from '../actions/auth'
+import LoginForm from './LoginForm'
+import { Link } from 'react-router-dom'
 
-export const LoginPage = ({ startGoogleLogin, startFacebookLogin }) => (
+const LoginPage = () => (
     <div className="box-layout">
         <div className="box-layout__box">
             <h1 className="box-layout__title">Expensify App</h1>
             <p>An application to log your expenses</p>
-            <button className="button button--login" onClick={startGoogleLogin}>
-                <img className="button--login__item" src="/images/google_icon.png" />
-                <span>Login with Google</span>
-            </button>
-            <button className="button button--login" onClick={startFacebookLogin}>
-                <img className="button--login__item" src="/images/facebook_icon.png" />
-                <span>Login with Facebook</span>
-            </button>
         </div>
+        <LoginForm />
+        <Link className="box-layout__box" to="/signup">
+            <p>If you don't have an account you can sign up here.</p>
+        </Link>
     </div>
 )
 
-const mapDispatchToProps = (dispatch) => ({
-    startGoogleLogin: () => dispatch(startGoogleLogin()),
-    startFacebookLogin: () => dispatch(startFacebookLogin())
-})
-
-export default connect(undefined, mapDispatchToProps)(LoginPage)
+export default LoginPage

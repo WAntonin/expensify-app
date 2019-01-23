@@ -40,7 +40,7 @@ export default class ExpenseForm extends React.Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-
+        console.log('sumbmit', email)
         if (!this.state.description || !this.state.amount) {
             this.setState(() => ({ error: 'Please provide description and amount.' }));
         } else {
@@ -90,7 +90,6 @@ export default class ExpenseForm extends React.Component {
                 <div>
                     <button className="button">Save Expense</button>
                 </div>
-
             </form>
         )
     }

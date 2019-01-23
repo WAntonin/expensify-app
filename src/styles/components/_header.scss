@@ -12,7 +12,11 @@
 .header__title {
     color: white;
     text-decoration: none;
+    transition: background .3s ease;
     h1 {
         margin: 0;
+        &:hover {
+            color: $grey;
+        }
     }
 }
