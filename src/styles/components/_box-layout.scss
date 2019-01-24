@@ -33,6 +33,7 @@
     text-decoration: none;
     transition: background .3s ease;
     &:hover {
+        text-decoration: underline;
         background: fade-out(darken(white, 10), .15);
     }
 }

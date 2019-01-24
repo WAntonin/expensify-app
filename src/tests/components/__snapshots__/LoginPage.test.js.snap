@@ -15,29 +15,16 @@ exports[`should render LoginPage correctly 1`] = `
     <p>
       An application to log your expenses
     </p>
-    <button
-      className="button button--login"
-      onClick={[Function]}
-    >
-      <img
-        className="button--login__item"
-        src="/images/google_icon.png"
-      />
-      <span>
-        Login with Google
-      </span>
-    </button>
-    <button
-      className="button button--login"
-    >
-      <img
-        className="button--login__item"
-        src="/images/facebook_icon.png"
-      />
-      <span>
-        Login with FaceBook
-      </span>
-    </button>
   </div>
+  <Connect(LoginForm) />
+  <Link
+    className="box-layout__box box-layout__box--link"
+    replace={false}
+    to="/signup"
+  >
+    <p>
+      If you don't have an account you can sign up here.
+    </p>
+  </Link>
 </div>
 `;

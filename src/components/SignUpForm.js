@@ -1,11 +1,7 @@
 import React from 'react'
 import isEmail from 'validator/lib/isEmail'
 import { connect } from 'react-redux'
-import {
-    startCreateUserAccount,
-    startGoogleLogin,
-    startFacebookLogin
-} from '../actions/auth'
+import { startCreateUserAccount } from '../actions/auth'
 
 export class SignUpForm extends React.Component {
     constructor(props) {
@@ -37,7 +33,11 @@ export class SignUpForm extends React.Component {
             this.setState(() => ({ error: 'Invalid password or email' }))
         } else {
             this.setState(() => ({ error: '' }))
-            this.props.startCreateUserAccount(this.state.email, this.state.password)
+            this.props.onSubmit({
+                user: this.state.user,
+                email: this.state.email,
+                password: this.state.password
+            })
         }
     }
     render() {
@@ -48,16 +48,6 @@ export class SignUpForm extends React.Component {
             || this.state.password === ''
             || this.state.password !== this.state.passwordConfirmation
         return (
-            <div className="box-layout__box">
-                <button className="button button--login" onClick={this.props.startGoogleLogin}>
-                    <img className="button--login__item" src="/images/google_icon.png" />
-                    <span>Sign up with Google</span>
-                </button>
-                <button className="button button--login" onClick={this.props.startFacebookLogin}>
-                    <img className="button--login__item" src="/images/facebook_icon.png" />
-                    <span>Sign up with Facebook</span>
-                </button>
-                <h3>OR</h3>
                 <form className="form" onSubmit={this.onSubmit}>
                     <input
                         className="text-input"
@@ -95,18 +85,14 @@ export class SignUpForm extends React.Component {
                         placeholder="Password confirmation"
                         autoComplete="on"
                     />
-                    {isPasswordConfirmed && <span>Password confirmed.</span>}
                     <button className="button" disabled={isInvalid} type="submit">Sign Up</button>
                 </form>
-            </div>
         )
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     startCreateUserAccount: (email, password) => dispatch(startCreateUserAccount(email, password)),
-    startGoogleLogin: () => dispatch(startGoogleLogin()),
-    startFacebookLogin: () => dispatch(startFacebookLogin())
 })
 
 export default connect(undefined, mapDispatchToProps)(SignUpForm)

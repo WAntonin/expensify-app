@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render LoginForm correctly 1`] = `
+<div
+  className="box-layout__box"
+>
+  <button
+    className="button button--login"
+  >
+    <img
+      className="button--login__item"
+      src="/images/google_icon.png"
+    />
+    <span>
+      Sign in with Google
+    </span>
+  </button>
+  <button
+    className="button button--login"
+  >
+    <img
+      className="button--login__item"
+      src="/images/facebook_icon.png"
+    />
+    <span>
+      Sign in with Facebook
+    </span>
+  </button>
+  <h3>
+    OR
+  </h3>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <input
+      autoComplete="on"
+      className="text-input"
+      name="email"
+      onChange={[Function]}
+      placeholder="email"
+      type="email"
+      value=""
+    />
+    <input
+      autoComplete="on"
+      className="text-input"
+      name="password"
+      onChange={[Function]}
+      placeholder="password (6 char. min.)"
+      type="password"
+      value=""
+    />
+    <button
+      className="button"
+      disabled={true}
+      type="submit"
+    >
+      Sign In
+    </button>
+  </form>
+</div>
+`;
