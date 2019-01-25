@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SignUpPage correctly 1`] = `
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__box"
+  >
+    <Connect(AuthProviders) />
+    <h3>
+      OR
+    </h3>
+    <SignUpForm
+      onSubmit={[Function]}
+    />
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render LoginForm correctly 1`] = `
+exports[`should render SignUpForm correctly 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -8,9 +8,16 @@ exports[`should render LoginForm correctly 1`] = `
   <input
     autoComplete="on"
     className="text-input"
+    name="userName"
+    placeholder="User name"
+    type="text"
+    value=""
+  />
+  <input
+    autoComplete="on"
+    className="text-input"
     name="email"
-    onChange={[Function]}
-    placeholder="email"
+    placeholder="Email"
     type="email"
     value=""
   />
@@ -19,16 +26,24 @@ exports[`should render LoginForm correctly 1`] = `
     className="text-input"
     name="password"
     onChange={[Function]}
-    placeholder="password (6 char. min.)"
+    placeholder="Password"
     type="password"
     value=""
+  />
+  <input
+    autoComplete="on"
+    className="text-input"
+    name="passwordConfirmation"
+    onChange={[Function]}
+    placeholder="Password confirmation"
+    type="password"
   />
   <button
     className="button"
     disabled={true}
     type="submit"
   >
-    Sign In
+    Sign Up
   </button>
 </form>
 `;

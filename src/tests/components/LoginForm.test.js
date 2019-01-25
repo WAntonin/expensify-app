@@ -1,47 +1,49 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LoginForm } from '../../components/LoginForm'
+import LoginForm from '../../components/LoginForm'
+import userId from '../fixtures/userId'
 
+let email, password, onSubmitSpy, wrapper
+
+beforeEach(() => {
+    email = {
+        target: {
+            value: userId.email,
+            name: 'email'
+        },
+    }
+    password = {
+        target: {
+            value: userId.password,
+            name: 'password'
+        },
+    }
+    onSubmitSpy = jest.fn()
+    wrapper = shallow(<LoginForm userId={userId} onSubmit={onSubmitSpy} />)
+})
 test('should render LoginForm correctly', () => {
-    const wrapper = shallow(<LoginForm />)
     expect(wrapper).toMatchSnapshot()
 })
 
-test('should call startGoogleLogin on button click', () => {
-    const startGoogleLogin = jest.fn()
-    const wrapper = shallow(<LoginForm startGoogleLogin={startGoogleLogin}/>)
-    wrapper.find('button').at(0).simulate('click')
-    expect(startGoogleLogin).toHaveBeenCalled()
-})
-
-
-test('should call startFacebookLogin on button click', () => {
-    const startFacebookLogin = jest.fn()
-    const wrapper = shallow(<LoginForm startFacebookLogin={startFacebookLogin}/>)
-    wrapper.find('button').at(1).simulate('click')
-    expect(startFacebookLogin).toHaveBeenCalled()
-})
-
 test('should set email on input change', () => {
-    const event = {
-        target: {
-                value: 'test@test.test',
-                name: 'email'
-            },
-        }
-    const wrapper = shallow(<LoginForm />)
-    wrapper.find('input').at(0).simulate('change', event)
-    expect(wrapper.state(event.target.name)).toBe(event.target.value)
+    wrapper.find('input').at(0).simulate('change', email)
+    expect(wrapper.state(email.target.name)).toBe(userId.email)
 })
 
 test('should set password on input change', () => {
-    const event = {
-        target: {
-                value: 'AveryS4fePassWoRd!ù',
-                name: 'password'
-            },
-        }
-    const wrapper = shallow(<LoginForm />)
-    wrapper.find('input').at(0).simulate('change', event)
-    expect(wrapper.state(event.target.name)).toBe(event.target.value)
+    wrapper.find('input').at(1).simulate('change', password)
+    expect(wrapper.state(password.target.name)).toBe(userId.password)
+})
+
+test('should call onSubmit prop for valid form submission', () => {
+    wrapper.find('input').at(0).simulate('change', email)
+    wrapper.find('input').at(1).simulate('change', password)
+    wrapper.find('form').simulate('submit', {
+        preventDefault: () => {}
+    })
+    expect(wrapper.state('error')).toBe('')
+    expect(onSubmitSpy).toHaveBeenLastCalledWith({
+        email: email.target.value,
+        password: password.target.value
+    })
 })

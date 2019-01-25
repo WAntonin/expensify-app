@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AuthProvider correctly 1`] = `
+<div>
+  <button
+    className="button button--login"
+    onClick={[Function]}
+  >
+    <img
+      className="button--login__item"
+      src="/images/google_icon.png"
+    />
+    <span>
+      Sign in with Google
+    </span>
+  </button>
+  <button
+    className="button button--login"
+    onClick={[Function]}
+  >
+    <img
+      className="button--login__item"
+      src="/images/facebook_icon.png"
+    />
+    <span>
+      Sign in with Facebook
+    </span>
+  </button>
+</div>
+`;

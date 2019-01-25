@@ -1,9 +1,8 @@
 import React from 'react'
 import isEmail from 'validator/lib/isEmail'
 import { connect } from 'react-redux'
-import { startCreateUserAccount } from '../actions/auth'
 
-export class SignUpForm extends React.Component {
+export default class SignUpForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,8 +13,8 @@ export class SignUpForm extends React.Component {
             error: ''
         }
     }
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+    onUserChange = (e) => {
+        this.setState(() => ({ [e.target.name]: e.target.value }))
     }
     onPasswordChange = (e) => {
         const password = e.target.value
@@ -34,7 +33,6 @@ export class SignUpForm extends React.Component {
         } else {
             this.setState(() => ({ error: '' }))
             this.props.onSubmit({
-                user: this.state.user,
                 email: this.state.email,
                 password: this.state.password
             })
@@ -90,9 +88,3 @@ export class SignUpForm extends React.Component {
         )
     }
 }
-
-const mapDispatchToProps = (dispatch) => ({
-    startCreateUserAccount: (email, password) => dispatch(startCreateUserAccount(email, password)),
-})
-
-export default connect(undefined, mapDispatchToProps)(SignUpForm)

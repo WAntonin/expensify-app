@@ -8,11 +8,11 @@ export class AuthProviders extends React.Component {
             <div>
                 <button className="button button--login" onClick={this.props.startGoogleLogin}>
                     <img className="button--login__item" src="/images/google_icon.png" />
-                    <span>Sign up with Google</span>
+                    <span>Sign in with Google</span>
                 </button>
                 <button className="button button--login" onClick={this.props.startFacebookLogin}>
                     <img className="button--login__item" src="/images/facebook_icon.png" />
-                    <span>Sign up with Facebook</span>
+                    <span>Sign in with Facebook</span>
                 </button>
             </div>
         )

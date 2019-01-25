@@ -5,7 +5,7 @@ import AuthProviders from './AuthProviders'
 import { startCreateUserAccount } from '../actions/auth'
 
 export class SignUpPage extends React.Component {
-    onSubmit = ({user, email, password}) => {
+    onSubmit = ({ email, password }) => {
         this.props.startCreateUserAccount(email, password)
     }
     render() {

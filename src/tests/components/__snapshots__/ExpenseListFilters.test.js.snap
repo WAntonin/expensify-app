@@ -27,7 +27,7 @@ exports[`should render ExpenseListFilters correctly 1`] = `
         value="date"
       >
         <option
-          value=""
+          value="sort by"
         >
           Sort by
         </option>
@@ -161,7 +161,7 @@ exports[`should render ExpenseListFilters with all data correctly 1`] = `
         value="amount"
       >
         <option
-          value=""
+          value="sort by"
         >
           Sort by
         </option>
