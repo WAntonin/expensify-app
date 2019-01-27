@@ -29,6 +29,12 @@ export const startCreateUserAccount = (email, password) => {
     }
 }
 
+export const startPasswordReset = (email) => {
+    return () => {
+        return firebase.auth().sendPasswordResetEmail(email)
+    }
+}
+
 export const logout = () => ({
     type: 'LOGOUT'
 })

@@ -6,15 +6,20 @@ export default class SignUpForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: '',
-            email: '',
-            password: '',
-            passwordConfrimation: '',
-            error: ''
+            userName: props.userId ? props.userId.userName : '',
+            email: props.userId ? props.userId.email : '',
+            password: props.userId ? props.userId.password : '',
+            passwordConfrimation: props.userId ? props.userId.passwordConfirmation : '',
+            error: props.userId ? props.userId.error : ''
         }
     }
-    onUserChange = (e) => {
-        this.setState(() => ({ [e.target.name]: e.target.value }))
+    onUserNameChange = (e) => {
+        const userName = e.target.value
+        this.setState(() => ({ userName }))
+    }
+    onEmailChange = (e) => {
+        const email = e.target.value
+        this.setState(() => ({ email }))
     }
     onPasswordChange = (e) => {
         const password = e.target.value
@@ -52,7 +57,7 @@ export default class SignUpForm extends React.Component {
                         type="text"
                         value={this.state.userName}
                         name="userName"
-                        onChange={this.onChange}
+                        onChange={this.onUserNameChange}
                         placeholder="User name"
                         autoComplete="on"
                     />
@@ -61,7 +66,7 @@ export default class SignUpForm extends React.Component {
                         type="email"
                         value={this.state.email}
                         name="email"
-                        onChange={this.onChange}
+                        onChange={this.onEmailChange}
                         placeholder="Email"
                         autoComplete="on"
                     />

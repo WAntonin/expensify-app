@@ -6,6 +6,12 @@ import { connect } from 'react-redux'
 import AuthProviders from './AuthProviders';
 
 export class LoginPage extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            error: ''
+        }
+    }
     onSubmit = ({ email, password }) => {
         this.props.startEmailPasswordLogin(email, password).catch((error) => {
             this.setState({ error })
@@ -22,7 +28,14 @@ export class LoginPage extends React.Component {
                     <AuthProviders />
                     <h3>OR</h3>
                     <LoginForm onSubmit={this.onSubmit} />
-                    {error.code === 'auth/wrong-password' && <p>Forgot your password?</p>}
+                    {
+                        this.state.error.code === 'auth/user-not-found' 
+                        && <p className="form__error">Invalid email.</p>
+                    }
+                    {
+                        this.state.error.code === 'auth/wrong-password' 
+                        && <p className="form__error"><Link to="/retrievepassword">Forgot your password?</Link></p>
+                    }
                 </div>
                 <Link className="box-layout__box box-layout__box--link" to="/signup">
                     <p>If you don't have an account you can sign up here.</p>
@@ -35,7 +48,6 @@ export class LoginPage extends React.Component {
 const mapStateToProps = (state) => ({
     email: state.email,
     password: state.password,
-    error: state.error
 })
 
 const mapDispatchToProps = (dispatch) => ({

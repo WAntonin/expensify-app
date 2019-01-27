@@ -21,6 +21,7 @@ beforeEach(() => {
     onSubmitSpy = jest.fn()
     wrapper = shallow(<LoginForm userId={userId} onSubmit={onSubmitSpy} />)
 })
+
 test('should render LoginForm correctly', () => {
     expect(wrapper).toMatchSnapshot()
 })

@@ -9,17 +9,19 @@ exports[`should render SignUpForm correctly 1`] = `
     autoComplete="on"
     className="text-input"
     name="userName"
+    onChange={[Function]}
     placeholder="User name"
     type="text"
-    value=""
+    value="Jean Dupont"
   />
   <input
     autoComplete="on"
     className="text-input"
     name="email"
+    onChange={[Function]}
     placeholder="Email"
     type="email"
-    value=""
+    value="valid@email.ok"
   />
   <input
     autoComplete="on"
@@ -28,7 +30,7 @@ exports[`should render SignUpForm correctly 1`] = `
     onChange={[Function]}
     placeholder="Password"
     type="password"
-    value=""
+    value="V@lid€password1"
   />
   <input
     autoComplete="on"
