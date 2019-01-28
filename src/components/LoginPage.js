@@ -26,7 +26,7 @@ export class LoginPage extends React.Component {
                 </div>
                 <div className="box-layout__box">
                     <AuthProviders />
-                    <h3>OR</h3>
+                    <h3 className="box-layout__subtitle box-layout__subtitle--separator"><span>OR</span></h3>
                     <LoginForm onSubmit={this.onSubmit} />
                     {
                         this.state.error.code === 'auth/user-not-found' 
