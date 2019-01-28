@@ -42,3 +42,13 @@
     margin: 0 0 $m-size 0;
     line-height: 1;
 }
+
+.box-layout__subtitle {
+    font-size: $font-size-small;
+    margin: 0 0 $s-size 0;
+}
+
+.box-layout__message {
+    font-size: $font-size-xsmall;
+    margin: 0 $s-size 0 $s-size;
+}

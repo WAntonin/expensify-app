@@ -5,7 +5,7 @@ import { startGoogleLogin, startFacebookLogin } from '../actions/auth'
 export class AuthProviders extends React.Component {
     render() {
         return (
-            <div>
+            <div >
                 <button className="button button--login" onClick={this.props.startGoogleLogin}>
                     <img className="button--login__item" src="/images/google_icon.png" />
                     <span>Sign in with Google</span>

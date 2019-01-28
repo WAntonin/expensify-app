@@ -13,7 +13,6 @@ export class RetrievePasswordPage extends React.Component {
         }
     }
     onEmailChange = (e) => {
-        console.log(e.target.value)
         const email = e.target.value
         this.setState(() => ({ email }))
     }
@@ -23,7 +22,6 @@ export class RetrievePasswordPage extends React.Component {
             this.props.startPasswordReset(this.state.email).catch((error) => {
                 this.setState({ error: error.code })
             })
-            console.log(this.state.error)
         }
     }
     render() {
