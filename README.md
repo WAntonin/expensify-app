@@ -12,4 +12,4 @@ This knowledge comes mainly from the course [The Complete React Web Developer Co
 
 ## Links
 
-This has been deployed on Heroku: [Browser preview](http://wantonin-recipeapp.surge.sh)
+This has been deployed on Heroku: [Browser preview](https://expense-tracker-react.herokuapp.com/)
