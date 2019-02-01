@@ -12,16 +12,22 @@ exports[`should render LoginPage correctly 1`] = `
     >
       Expensify App
     </h1>
-    <p>
+    <h2
+      className="box-layout__subtitle"
+    >
       An application to log your expenses
-    </p>
+    </h2>
   </div>
   <div
     className="box-layout__box"
   >
     <Connect(AuthProviders) />
-    <h3>
-      OR
+    <h3
+      className="box-layout__subtitle box-layout__subtitle--separator"
+    >
+      <span>
+        OR
+      </span>
     </h3>
     <LoginForm
       onSubmit={[Function]}
@@ -32,7 +38,9 @@ exports[`should render LoginPage correctly 1`] = `
     replace={false}
     to="/signup"
   >
-    <p>
+    <p
+      className="box-layout__message"
+    >
       If you don't have an account you can sign up here.
     </p>
   </Link>
