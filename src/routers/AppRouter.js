@@ -10,6 +10,7 @@ import SignUpPage from './../components/SignUpPage'
 import RetrievePasswordPage from './../components/RetrievePasswordPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import { AuthentificationPage } from '../components/AuthentificationPage';
 
 
 
@@ -19,7 +20,7 @@ const AppRouter = () => (
     <Router history={history}>
         <div>
             <Switch>
-                <PublicRoute path="/" component={LoginPage} exact={true} />
+                <PublicRoute path="/" component={AuthentificationPage} exact={true} />
                 <PublicRoute path="/signup" component={SignUpPage} />
                 <PublicRoute path="/retrievepassword" component={RetrievePasswordPage} />
                 <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
