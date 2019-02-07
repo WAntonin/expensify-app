@@ -5,12 +5,9 @@ import AddExpensePage from './../components/AddExpensePage'
 import EditExpensePage from './../components/EditExpensePage'
 import ExpenseDashboardPage from './../components/ExpenseDashboardPage'
 import NotFoundPage from './../components/NotFoundPage'
-import LoginPage from './../components/LoginPage'
-import SignUpPage from './../components/SignUpPage'
-import RetrievePasswordPage from './../components/RetrievePasswordPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
-import { AuthentificationPage } from '../components/AuthentificationPage';
+import Authenticate from '../components/index';
 
 
 
@@ -20,9 +17,7 @@ const AppRouter = () => (
     <Router history={history}>
         <div>
             <Switch>
-                <PublicRoute path="/" component={AuthentificationPage} exact={true} />
-                <PublicRoute path="/signup" component={SignUpPage} />
-                <PublicRoute path="/retrievepassword" component={RetrievePasswordPage} />
+                <PublicRoute path="/" component={Authenticate} exact={true} />
                 <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
                 <PrivateRoute path="/create" component={AddExpensePage} />
                 <PrivateRoute path="/edit/:id" component={EditExpensePage} />
