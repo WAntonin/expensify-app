@@ -1,8 +1,7 @@
 import React from 'react'
 
-export default (props) => {
-    console.log('SignIn', props)
-    const { onChange, onSubmit, showSignUp } = props
+function SignIn({ onChange, onSubmit, showSignUp }) {
+    console.log('SignIn', { onChange, onSubmit, showSignUp })
     const isInvalid = false
     return (
         <div>
@@ -47,3 +46,5 @@ export default (props) => {
 
     )
 }
+
+export default SignIn

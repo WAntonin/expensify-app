@@ -11,19 +11,23 @@ const SignUpForm = authenticate(SignUp)
 
 
 export class Authenticate extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
             isSignIn: true
         }
-        this.toggleForm = this.toggleForm.bind(this)
+        // this.toggleForm = this.toggleForm.bind(this)
     }
+
     toggleForm = () => {
         this.setState(() => ({
             isSignIn: !this.state.isSignIn
         }))
     }
+
     render() {
+        console.log(this.props)
         const { startCreateUserAccount, startEmailPasswordLogin } = this.props
         return (
             // <div className="box-layout">
@@ -55,9 +59,14 @@ export class Authenticate extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    email: state.email,
+    password: state.email
+})
+
 const mapDispatchToProps = (dispatch) => ({
     startCreateUserAccount: (email, password) => dispatch(startCreateUserAccount(email, password)),
     startEmailPasswordLogin: (email, password) => dispatch(startEmailPasswordLogin(email, password))
 })
 
-export default connect(undefined, mapDispatchToProps)(Authenticate)
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticate)

@@ -9,8 +9,8 @@ export default (props) => {
     const isInvalid = false
     return (
         <div>
-            <h2>Sign up</h2>
             <div className="box-layout__box">
+                <h2>Sign up</h2>
                 <form className="form" onSubmit={onSubmit}>
                     <input
                         className="text-input"
@@ -48,13 +48,13 @@ export default (props) => {
                 <div
                     to=""
                     id="go-to-signin"
-                    
+
                     className="box-layout__box box-layout__box--link"
                 >
                     Already have an account? Sign in here.
             </div>
             </a>
-            
+
         </div>
 
     )
