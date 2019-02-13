@@ -1,6 +1,6 @@
 import React from 'react'
 
-const authenticate = (WrappedComponent) => {
+function authenticate(WrappedComponent) {
     class Authenticate extends React.Component {
         constructor(props) {
             super(props)
@@ -10,29 +10,17 @@ const authenticate = (WrappedComponent) => {
             }
             this.onInputChange = this.onInputChange.bind(this);
             this.submit = this.submit.bind(this)
-            // console.log('AUTHENTICATE', props.onSubmit)
-            console.log(typeof(this.state.email), this.state.email)
-            // console.log(props.onSubmit(this.state.email, this.state.password))
-
         }
-        onInputChange = (e) => {
+
+        onInputChange(e) {
             e.preventDefault()
-            console.log('INPUT_CHANGE', this.state)
             const inputName = e.target.name 
             const inputValue = e.target.value 
             this.setState({ [inputName]: inputValue })
-            console.log(typeof(this.state.email), this.state.email)
-
         }
-        submit = () => {
-            // console.log('SUBMIT', this.state.email, this.state.password)
-            // debugger
-            const email = this.state.email
-            const password = this.state.password
-            console.log(this.state.email, this.state.password)
-            debugger
-            this.props.onSubmit(email, password)
-            debugger
+
+        submit() {
+            this.props.onSubmit(this.state.email, this.state.password)
         }
         render() {
             const { onSubmit, onInputChange, ...otherProps } = this.props

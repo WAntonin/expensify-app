@@ -7,7 +7,7 @@ import ExpenseDashboardPage from './../components/ExpenseDashboardPage'
 import NotFoundPage from './../components/NotFoundPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
-import Authenticate from '../components/index';
+import Authenticate from '../components/Authenticate/index';
 
 
 

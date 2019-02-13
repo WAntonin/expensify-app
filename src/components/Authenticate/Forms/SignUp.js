@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-export default (props) => {
-    console.log('before up', props)
+function SignUp(props) {
     const { onInputChange, onSubmit, showSignIn } = props
-    console.log('signIn', props)
-
     const isInvalid = false
     return (
         <div>
@@ -26,6 +22,7 @@ export default (props) => {
                         name="password"
                         onChange={onInputChange}
                         placeholder="password (6 char. min.)"
+                        autoComplete="on"
                     />
                     <input
                         className="text-input"
@@ -46,16 +43,16 @@ export default (props) => {
             </div>
             <a onClick={showSignIn}>
                 <div
-                    to=""
                     id="go-to-signin"
-
                     className="box-layout__box box-layout__box--link"
                 >
                     Already have an account? Sign in here.
-            </div>
+                </div>
             </a>
 
         </div>
 
     )
 }
+
+export default SignUp

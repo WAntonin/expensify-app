@@ -1,7 +1,6 @@
 import React from 'react'
 
 function SignIn({ onChange, onSubmit, showSignUp }) {
-    console.log('SignIn', { onChange, onSubmit, showSignUp })
     const isInvalid = false
     return (
         <div>

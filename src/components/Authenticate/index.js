@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import AuthProviders from './AuthProviders'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
-import { startEmailPasswordLogin, startCreateUserAccount } from '../actions/auth'
+import AuthProviders from '../AuthProviders'
+import SignIn from './Forms/SignIn'
+import SignUp from './Forms/SignUp'
+import { startEmailPasswordLogin, startCreateUserAccount } from '../../actions/auth'
 import authenticate from './authenticate'
 
 const SignInForm = authenticate(SignIn)
@@ -17,25 +17,18 @@ export class Authenticate extends React.Component {
         this.state = {
             isSignIn: true
         }
-        // this.toggleForm = this.toggleForm.bind(this)
+        this.toggleForm = this.toggleForm.bind(this)
     }
 
-    toggleForm = () => {
+    toggleForm() {
         this.setState(() => ({
             isSignIn: !this.state.isSignIn
         }))
     }
 
     render() {
-        console.log(this.props)
         const { startCreateUserAccount, startEmailPasswordLogin } = this.props
         return (
-            // <div className="box-layout">
-            //     <div className="box-layout__box">
-            //         <h1 className="box-layout__title">Expensify App</h1>
-            //         <h2 className="box-layout__subtitle">An application to log your expenses</h2>
-            //     </div>
-            // </div>
             <div className="box-layout">
                 <div className="box-layout__box">
                     <AuthProviders />
@@ -59,14 +52,9 @@ export class Authenticate extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    email: state.email,
-    password: state.email
-})
-
 const mapDispatchToProps = (dispatch) => ({
     startCreateUserAccount: (email, password) => dispatch(startCreateUserAccount(email, password)),
     startEmailPasswordLogin: (email, password) => dispatch(startEmailPasswordLogin(email, password))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Authenticate)
+export default connect(undefined, mapDispatchToProps)(Authenticate)
